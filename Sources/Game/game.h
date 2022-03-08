@@ -3,7 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <iostream>
-#include "../Field/renderfield.h"
+#include "Field/renderfield.h"
 
 class game
 {

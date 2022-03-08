@@ -48,7 +48,7 @@ void field::checkPutTower() {
         } else if (allTiles[i] == 'E') {
             map.setSpriteOnMap(6, indexLines, indexColumns);
         } else if (allTiles[i] == '1') {
-            map.setSpriteOnMap(7 indexLines, indexColumns);
+            map.setSpriteOnMap(7, indexLines, indexColumns);
         } else if (allTiles[i] == '2') {
             map.setSpriteOnMap(8, indexLines, indexColumns);
         } else if (allTiles[i] == '3') {

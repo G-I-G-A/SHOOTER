@@ -17,14 +17,14 @@ INCLUDEPATH += "..\..\SFML-2.5.1\include"
 DEPENDPATH += "..\..\SFML-2.5.1\include"
 
 SOURCES += \
-        ../Field/field.cpp \
-        ../Field/renderfield.cpp \
-        ../Game/game.cpp \
+        Field/field.cpp \
+        Field/renderfield.cpp \
+        Game/game.cpp \
         Menu/menu.cpp \
         main.cpp
 
 HEADERS += \
-    ../Field/field.h \
-    ../Field/renderfield.h \
-    ../Game/game.h \
+    Field/field.h \
+    Field/renderfield.h \
+    Game/game.h \
     Menu/menu.h

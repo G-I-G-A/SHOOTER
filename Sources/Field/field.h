@@ -15,7 +15,8 @@ public:
     renderfield map;
 
     void getTilesFromFile();
-    void checkPutTower();
+    void PutSprite();
+    void PutEnemies();
 
 protected:
     int nbLines = 0;

@@ -11,6 +11,7 @@ game::game()
 }
 game::~game() {}
 
+//GameLoop
 void game::Run()
 {
     sf::Clock clock;

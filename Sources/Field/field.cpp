@@ -27,6 +27,7 @@ void field::getTilesFromFile()
     }
     PutSprite();
     PutEnemies();
+    PutPlayer();
 }
 
 void field::PutSprite() {
@@ -36,38 +37,39 @@ void field::PutSprite() {
 
         switch(allTiles[i]) {
         case 'U':
-        map.setSpriteOnMap(1, indexLines, indexColumns);
+            SpriteCase = 1;
             break;
         case 'D':
-        map.setSpriteOnMap(2, indexLines, indexColumns);
+            SpriteCase = 2;
             break;
         case 'R':
-        map.setSpriteOnMap(3, indexLines, indexColumns);
+            SpriteCase = 3;
             break;
         case 'L':
-        map.setSpriteOnMap(4, indexLines, indexColumns);
+            SpriteCase = 4;
             break;
         case 'G':
-        map.setSpriteOnMap(5, indexLines, indexColumns);
+            SpriteCase = 5;
             break;
         case 'E':
-        map.setSpriteOnMap(6, indexLines, indexColumns);
+            SpriteCase = 6;
             break;
         case '1':
-        map.setSpriteOnMap(7, indexLines, indexColumns);
+            SpriteCase = 7;
             break;
         case '2':
-        map.setSpriteOnMap(8, indexLines, indexColumns);
+            SpriteCase = 8;
             break;
         case '3':
-        map.setSpriteOnMap(9, indexLines, indexColumns);
+            SpriteCase = 9;
         case '4' :
-        map.setSpriteOnMap(10, indexLines, indexColumns);
+            SpriteCase = 10;
             break;
         default:
             cerr << "WARNING WRONG LETTER !";
             }
 
+        map.setSpriteOnMap(SpriteCase, indexLines, indexColumns);
         indexColumns++;
 
         if (indexColumns == allTiles.size() / nbLines) {
@@ -79,7 +81,11 @@ void field::PutSprite() {
 
 void field::PutEnemies(){
     map.setEnemyOnMap('R', 74.0f, 74.0f);
-    map.setEnemyOnMap('R', 120.f, 370.0f);
-    map.setEnemyOnMap('T', 800.0f, 750.0f);
+    map.setEnemyOnMap('R', 120.f, 540.0f);
+    map.setEnemyOnMap('T', 960.0f, 750.0f);
 
+}
+
+void field::PutPlayer(){
+    map.setPlayerOnMap(1030.0f, 85.0f);
 }

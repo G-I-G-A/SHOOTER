@@ -5,7 +5,7 @@ using namespace std;
 const sf::Time game::TimePerFrame = sf::seconds(1.f/60.f);
 
 game::game()
-: MainWindow(sf::VideoMode(1600, 900), "Your Awesome Game!")
+: MainWindow(sf::VideoMode(1600, 900), "Shooter!")
 {
 
 }

@@ -17,11 +17,13 @@ public:
     void getTilesFromFile();
     void PutSprite();
     void PutEnemies();
+    void PutPlayer();
 
 protected:
     int nbLines = 0;
     unsigned long long indexColumns = 0;
     int indexLines = 0;
+    int SpriteCase = 0;
 
     std::string getTile;
     std::vector<char> allTiles;

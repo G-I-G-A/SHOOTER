@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include "Field/renderfield.h"
+#include "Bullet/bullet.h"
 
 class game
 {
@@ -20,6 +21,8 @@ public:
     sf::RenderWindow MainWindow;
 protected:
     static const sf::Time TimePerFrame;
+
+    std::vector<bullet> allBullets;
 };
 
 #endif // GAME_H

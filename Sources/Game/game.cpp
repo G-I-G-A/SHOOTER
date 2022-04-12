@@ -17,6 +17,8 @@ void game::Run()
     sf::Clock clock;
     sf::Time timeSinceLastUpdate = sf::Time::Zero;
 
+    field.PutEnemies();
+
     while (MainWindow.isOpen())
     {
         timeSinceLastUpdate += clock.restart();
@@ -25,9 +27,11 @@ void game::Run()
             timeSinceLastUpdate -= TimePerFrame;
             processEvents();
             update(TimePerFrame);
+
         }
         render();
     }
+
 }
 
 void game::processEvents()
@@ -56,8 +60,11 @@ void game::processEvents()
 
 void game::update(sf::Time deltaTime)
 {
-    // TODO: Update your objects here
-    // Example: Window.draw(mPlayer);
+
+    if(field.allEnnemies.size() > 0)
+    {
+        field.updateEnemies();
+    }else{std::cout << "No Ennemies";}
 }
 
 void game::render()
@@ -66,8 +73,9 @@ void game::render()
 
     for(unsigned long long i = 0; i < renderfield::allSprites.size(); ++i) {
         MainWindow.draw(renderfield::allSprites[i]);
+        //MainWindow.draw(Enemy::EnemiesSprites[i]);
     }
-
+    MainWindow.draw(Enemy::enemySprite);
     MainWindow.display();
 }
 
@@ -80,3 +88,6 @@ void game::handlePlayerInput(sf::Keyboard::Key key, bool isPressed)
     //     mIsMovingUp = isPressed;
     // }
 }
+
+
+

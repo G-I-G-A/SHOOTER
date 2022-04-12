@@ -62,6 +62,7 @@ void field::PutSprite() {
             break;
         case '3':
             SpriteCase = 9;
+            break;
         case '4' :
             SpriteCase = 10;
             break;
@@ -69,7 +70,7 @@ void field::PutSprite() {
             cerr << "WARNING WRONG LETTER !";
             }
 
-        map.setSpriteOnMap(SpriteCase, indexLines, indexColumns);
+        map.initSpriteOnMap(SpriteCase, indexLines, indexColumns);
         indexColumns++;
 
         if (indexColumns == allTiles.size() / nbLines) {
@@ -80,12 +81,35 @@ void field::PutSprite() {
 }
 
 void field::PutEnemies(){
-    map.setEnemyOnMap('R', 74.0f, 74.0f);
-    map.setEnemyOnMap('R', 120.f, 540.0f);
-    map.setEnemyOnMap('T', 960.0f, 750.0f);
+
+    //creation des ennemies || a modifier
+    Enemy* enemy1 = new Enemy ("enemy1", 100, 1.0f, 1.0f, 80.0f, 80.0f);
+    //Enemy* enemy2 = new Enemy("enemy2", 100,1.0f,1.0f, 120.f, 540.0f);
+    Enemy* enemy3 = new Enemy("enemy3", 100,1.0f,1.0f, 960.0f, 750.0f);
+
+    allEnnemies.push_back(enemy1);
+    //allEnnemies.push_back(enemy2);
+    //allEnnemies.push_back(enemy3);
+
+    enemy1->initEnemyOnMap('R', enemy1->getPositionX(), enemy1->getPositionY());
+    //enemy2->initEnemyOnMap('R', enemy2->getPositionX(), enemy2->getPositionY());
+    //enemy2->initEnemyOnMap('T', enemy3->getPositionX(), enemy3->getPositionY());
 
 }
 
 void field::PutPlayer(){
-    map.setPlayerOnMap(1030.0f, 85.0f);
+    map.initPlayerOnMap(1030.0f, 85.0f);
 }
+
+void field::updateEnemies()
+{
+    //std::cout << allEnnemies[1].getName();
+
+    float dirX = 0.1f;
+    float dirY = 0.1f;
+    allEnnemies[0]->setPositionEnemy(dirX, dirY);
+
+    //std::cout << "call every frame";
+}
+
+

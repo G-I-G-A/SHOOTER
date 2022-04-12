@@ -5,6 +5,7 @@
 #include <iostream>
 #include <fstream>
 #include "renderfield.h"
+#include "Enemy/enemy.h"
 
 class field
 {
@@ -18,6 +19,10 @@ public:
     void PutSprite();
     void PutEnemies();
     void PutPlayer();
+    void updateEnemies();
+
+    std::vector<Enemy*> allEnnemies;
+
 
 protected:
     int nbLines = 0;
@@ -28,6 +33,8 @@ protected:
     std::string getTile;
     std::vector<char> allTiles;
     sf::Texture texture;
+
+
 
 };
 

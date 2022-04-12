@@ -8,7 +8,7 @@
 class bullet
 {
 public:
-    bullet(float PosPlayerX, float PosPlayerY, float AnglePlayer, float PosEnX, float PosEnY, bool IsPlayer);
+    bullet(float PosPlayerX, float PosPlayerY, float AnglePlayer, float PosEnX, float PosEnY, bool IsPlayer, float Speed);
     ~bullet();
 
     void drawBullet();
@@ -22,6 +22,7 @@ protected:
     float m_PosEnX;
     float m_PosEnY;
     bool m_IsPlayer;
+    float m_Speed;
 
 };
 

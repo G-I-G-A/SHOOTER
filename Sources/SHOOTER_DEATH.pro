@@ -23,6 +23,7 @@ SOURCES += \
         Field/renderfield.cpp \
         Game/game.cpp \
         Menu/menu.cpp \
+        Player/player.cpp \
         main.cpp
 
 HEADERS += \
@@ -31,4 +32,5 @@ HEADERS += \
     Field/field.h \
     Field/renderfield.h \
     Game/game.h \
-    Menu/menu.h
+    Menu/menu.h \
+    Player/player.h

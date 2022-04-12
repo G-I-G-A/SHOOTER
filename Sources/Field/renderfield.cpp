@@ -10,12 +10,10 @@ sf::Sprite renderfield::topLCornerSprite;
 sf::Sprite renderfield::topRCornerSprite;
 sf::Sprite renderfield::botLCornerSprite;
 sf::Sprite renderfield::botRCornerSprite;
-sf::Sprite renderfield::enemySprite;
 sf::Sprite renderfield::playerSprite;
 std::vector<sf::Sprite> renderfield::allSprites;
 
-sf::Sprite renderfield::printSprite ;
-//sf::Texture renderfield::texture;
+sf::Sprite renderfield::printSprite;
 
 renderfield::renderfield()
 {
@@ -24,7 +22,7 @@ renderfield::renderfield()
 
 renderfield::~renderfield() {}
 
-void renderfield::setSpriteOnMap(int type, int lines, int columns) {
+void renderfield::initSpriteOnMap(int type, int lines, int columns) {
 
     //std::cout << "line: " << lines << "\t column: " << columns << "\n";
 
@@ -92,29 +90,8 @@ void renderfield::setSpriteOnMap(int type, int lines, int columns) {
 
 }
 
-void renderfield::setEnemyOnMap(char type, float x, float y){
 
-    textureEnemy.loadFromFile("C:/Users/julie/Documents/Exos/SHOOTER/Assets/Sprites/Enemy.png");
-
-    switch(type) {
-
-    case 'R':
-        enemySprite.setRotation(270.0f);
-        break;
-    case 'T':
-        enemySprite.setRotation(180.0f);
-        break;
-    }
-
-    enemySprite.setTexture(textureEnemy);
-    enemySprite.setTextureRect(sf::IntRect(0 * 96, 0 * 96, 96, 96));
-    enemySprite.setPosition(sf::Vector2f(x, y));
-    enemySprite.setOrigin(48.0f, 48.0f);
-    allSprites.push_back(enemySprite);
-
-}
-
-void renderfield::setPlayerOnMap(float x, float y){
+void renderfield::initPlayerOnMap(float x, float y){
 
     texturePlayer.loadFromFile("C:/Users/julie/Documents/Exos/SHOOTER/Assets/Sprites/Player.png");
     playerSprite.setTexture(texturePlayer);
@@ -124,3 +101,5 @@ void renderfield::setPlayerOnMap(float x, float y){
     allSprites.push_back(playerSprite);
 
 }
+
+

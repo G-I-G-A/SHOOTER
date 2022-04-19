@@ -3,12 +3,10 @@
 
 using namespace std;
 
-
-
 const sf::Time Game::TimePerFrame = sf::seconds(1.f/60.f);
 
 Game::Game()
-: MainWindow(sf::VideoMode(1600, 900), "Your Awesome Game!"), player()
+: MainWindow(sf::VideoMode(1600, 900), "SHOOTER JP"), player()
 {
     player.InitializedPlayer();
 }
@@ -19,8 +17,14 @@ void Game::Run()
     sf::Clock clock;
     sf::Time timeSinceLastUpdate = sf::Time::Zero;
 
+    sf::Clock clock2;
+    sf::Time elapsedTime = clock2.getElapsedTime();
+
+    field.PutEnemies();
+
     while (MainWindow.isOpen())
     {
+        elapsedTime = clock2.getElapsedTime();
         timeSinceLastUpdate += clock.restart();
         while (timeSinceLastUpdate > TimePerFrame)
         {
@@ -29,6 +33,12 @@ void Game::Run()
             update(TimePerFrame);
         }
         render();
+/*
+        if (elapsedTime.asMilliseconds() > 60) {
+            update(TimePerFrame);
+            clock2.restart();
+        }
+*/
     }
 }
 
@@ -57,8 +67,13 @@ void Game::processEvents()
 
 void Game::update(sf::Time deltaTime)
 {
-    // TODO: Update your objects here
-    // Example: Window.draw(mPlayer);
+    if(field.allEnnemies.size() > 0)
+    {
+        field.updateEnemies();
+    } else {
+        std::cout << "No Ennemies" << std::endl;
+    }
+    ;
 }
 
 void Game::render()
@@ -70,31 +85,13 @@ void Game::render()
     }
 
     MainWindow.draw(player.getPlayerShape());
+    MainWindow.draw(Enemy::enemySprite);
 
     MainWindow.display();
 }
 
 void Game::handlePlayerInput(sf::Event event, bool isPressed)
 {
-//    switch (event.key.code)
-//    {
-//        case sf::Keyboard::Z:
-//            DeplacmentValueX += 1.f;
-//            break;
-//        case sf::Keyboard::S:
-//            DeplacmentValueX -= 1.f;
-//            break;
-//        case sf::Keyboard::Q:
-//            DeplacmentValueY -= 1.f;
-//            break;
-//        case sf::Keyboard::D:
-//            DeplacmentValueY += 1.f;
-//            break;
-//        default:
-//            DeplacmentValueX = 0;
-//            DeplacmentValueX = 0;
-//            break;
-//    }
 
     int DeplacmentValueX = 0;
     int DeplacmentValueY = 0;
@@ -102,22 +99,17 @@ void Game::handlePlayerInput(sf::Event event, bool isPressed)
     if (isPressed) {
         if (event.key.code == sf::Keyboard::Z) {
             DeplacmentValueY = (-1);
-            //player.playerMoveUp();
         }
         if (event.key.code == sf::Keyboard::S) {
             DeplacmentValueY = 1;
-            //player.playerMoveDown();
         }
         if (event.key.code == sf::Keyboard::Q) {
             DeplacmentValueX = (-1);
-            //player.playerMoveLeft();
         }
         if (event.key.code == sf::Keyboard::D) {
             DeplacmentValueX = 1;
-            //player.playerMoveRight();
         }
     }
-    //sf::Keyboard::isKeyPressed(sf::Keyboard::Z)
 
     player.playerMovement(DeplacmentValueX, DeplacmentValueY);
     player.setPlayerPosition();

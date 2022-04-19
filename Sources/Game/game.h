@@ -3,6 +3,10 @@
 #include <iostream>
 #include "../Field/renderfield.h"
 #include "../Player/player.h"
+#include "Enemy/enemy.h"
+#include "Field/field.h"
+#include "Bullet/bullet.h"
+
 
 class Game
 {
@@ -19,7 +23,8 @@ public:
 
 protected:
     static const sf::Time TimePerFrame;
-
     Player player;
+    Field field;
+    std::vector<bullet> allBullets;
 };
 

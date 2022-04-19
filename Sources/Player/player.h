@@ -11,10 +11,6 @@ public:
     void InitializedPlayer();
     sf::RectangleShape getPlayerShape();
     void playerMovement(int x, int y);
-    void playerMoveUp();
-    void playerMoveDown();
-    void playerMoveLeft();
-    void playerMoveRight();
     void setPlayerPosition();
 
 

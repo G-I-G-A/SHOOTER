@@ -10,16 +10,32 @@ public:
     RenderField();
     ~RenderField();
 
-    void setSpriteOnMap(int type, int lines, int columns);
+    void initSpriteOnMap(int type, int lines, int columns);
 
-    static sf::Sprite grassSprite;
-    static sf::Sprite dirtSprite;
-    static sf::Sprite waterSprite;
+    void initPlayerOnMap(float x, float y); //
 
+    void setEnemyOnMap(float x, float y); //
+
+    static sf::Sprite upWallSprite; //
+    static sf::Sprite downWallSprite; //
+    static sf::Sprite rightWallSprite; //
+    static sf::Sprite leftWallSprite; //
+    static sf::Sprite groundSprite; //
+    static sf::Sprite exitSprite; //
+    static sf::Sprite topLCornerSprite; //
+    static sf::Sprite topRCornerSprite; //
+    static sf::Sprite botLCornerSprite; //
+    static sf::Sprite botRCornerSprite; //
+    static sf::Sprite playerSprite; //
+
+    static sf::Sprite printSprite; //
     static std::vector<sf::Sprite> allSprites;
 
 protected:
      sf::Texture texture;
+     sf::Texture texturePlayer;
+     int i; // a changer
+     int j; // a changer
 };
 
 #endif // RENDERFIELD_H

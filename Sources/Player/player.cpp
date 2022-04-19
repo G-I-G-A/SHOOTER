@@ -19,24 +19,6 @@ void Player::playerMovement(int x, int y) {
 
     playerPosX += 5 * x;
     playerPosY += 5 * y;
-
-    //setPlayerPosition();
-}
-
-void Player::playerMoveUp() {
-    playerPosY -= 5.f;
-}
-
-void Player::playerMoveDown() {
-    playerPosY += 5.f;
-}
-
-void Player::playerMoveLeft() {
-    playerPosX -= 5.f;
-}
-
-void Player::playerMoveRight() {
-    playerPosX += 5.f;
 }
 
 void Player::setPlayerPosition() {

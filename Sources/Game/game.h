@@ -1,34 +1,29 @@
-#ifndef GAME_H
-#define GAME_H
-
+#pragma once
 #include <SFML/Graphics.hpp>
 #include <iostream>
-#include "Field/renderfield.h"
+#include "../Field/renderfield.h"
+#include "../Player/player.h"
+#include "Enemy/enemy.h"
 #include "Field/field.h"
 #include "Bullet/bullet.h"
-#include "Enemy/enemy.h"
 
-class game
+
+class Game
 {
 public:
-    game();
-    ~game();
-
+    Game();
+    ~Game();
     void Run();
     void processEvents();
     void update(sf::Time deltaTime);
     void render();
-    void handlePlayerInput(sf::Keyboard::Key key, bool isPressed);
-
-    void moveEnemies();
+    void handlePlayerInput(sf::Event event, bool isPressed);
 
     sf::RenderWindow MainWindow;
-    field field;
+
 protected:
     static const sf::Time TimePerFrame;
-
+    Player player;
+    Field field;
     std::vector<bullet> allBullets;
-
 };
-
-#endif // GAME_H

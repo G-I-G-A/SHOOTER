@@ -1,0 +1,34 @@
+#ifndef ASSETS_H
+#define ASSETS_H
+#include <SFML/Graphics.hpp>
+
+class Assets
+{
+public:
+    Assets(float x, float y, float width, float height, float angle, std::string filename);
+    virtual ~Assets();
+
+    void draw();
+    void init();
+
+    virtual float getAngle();
+    virtual sf::Texture getTexture();
+    virtual sf::Sprite getSprite();
+    virtual void setAngle(float angle);
+    virtual void setMovement(float x, float y);
+
+protected:
+    sf::Texture m_assetTexture;
+    sf::Sprite m_assetSprite;
+
+    float m_spritePosX;
+    float m_spritePosY;
+    float m_width;
+    float m_height;
+    float m_angle;
+    std::string m_filename;
+
+
+};
+
+#endif // ASSETS_H

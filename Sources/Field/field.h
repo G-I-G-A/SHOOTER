@@ -5,37 +5,38 @@
 #include <iostream>
 #include <fstream>
 #include "renderfield.h"
-#include "Enemy/enemy.h"
+#include "Enemy/enemy.h" //
 
-class field
+
+class Field
 {
 public:
-    field();
-    ~field();
+    Field();
+    ~Field();
 
-    renderfield map;
+    RenderField map;
 
     void getTilesFromFile();
-    void PutSprite();
-    void PutEnemies();
-    void PutPlayer();
-    void updateEnemies();
+    void checkPutTower();
 
-    std::vector<Enemy*> allEnnemies;
+    void PutSprite(); //
+    void PutEnemies(); //
+    void updateEnemies(); //
 
+    std::vector<Enemy*> allEnnemies; //
 
 protected:
     int nbLines = 0;
     unsigned long long indexColumns = 0;
     int indexLines = 0;
-    int SpriteCase = 0;
+    int SpriteCase = 0; //
 
     std::string getTile;
     std::vector<char> allTiles;
     sf::Texture texture;
 
-
-
+    float posX = 0.0f;
+    bool wayBack = false;
 };
 
 #endif // FIELD_H

@@ -57,6 +57,7 @@ void Assets::turnAsset(std::string direction)
     }
     m_angle += angle;
     m_assetSprite.setRotation(m_angle);
+    std::cout << angle;
 }
 
 float Assets::getAngle(){return m_angle;}

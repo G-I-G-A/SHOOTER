@@ -15,6 +15,7 @@ public:
     void playerMovement(int x, int y);
     void setPlayerPosition();
     void setRotation(std::string direction);
+    void setAngle(float angle);
 
 
 protected:

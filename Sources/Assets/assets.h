@@ -1,6 +1,8 @@
 #ifndef ASSETS_H
 #define ASSETS_H
 #include <SFML/Graphics.hpp>
+#include <fstream>
+#include <iostream>
 
 class Assets
 {

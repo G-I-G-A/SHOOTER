@@ -6,6 +6,7 @@
 #include <fstream>
 #include "renderfield.h"
 #include "Enemy/enemy.h" //
+#include "Player/player.h"//
 
 
 class Field
@@ -22,6 +23,7 @@ public:
     void PutSprite(); //
     void PutEnemies(); //
     void updateEnemies(); //
+
 
     std::vector<Enemy*> allEnnemies; //
 

@@ -6,7 +6,7 @@ using namespace std;
 const sf::Time Game::TimePerFrame = sf::seconds(1.f/60.f);
 
 Game::Game()
-: MainWindow(sf::VideoMode(1600, 900), "SHOOTER JP"), player(80.0f, 80.0f)
+: MainWindow(sf::VideoMode(1600, 900), "SHOOTER JP"), player (80.0f, 80.0f)
 {
 
 }
@@ -118,7 +118,7 @@ void Game::handlePlayerInput(sf::Event event, bool isPressed)
         }
     }
 
-    player.setRotation(direction);
+    player.setAngle(90.0f);
     player.playerMovement(DeplacmentValueX, DeplacmentValueY);
     player.setPlayerPosition();
 

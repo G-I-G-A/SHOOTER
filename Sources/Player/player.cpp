@@ -31,11 +31,14 @@ void Player::PlayerDraw() {
     std::string filename = "../Assets/Sprites/Player.png";
     assetPlayer = new Assets(playerPosX, playerPosY, 96.0f, 96.0f, 0.0f, filename);
     PlayerShape = assetPlayer->getSprite();
-    //this->PlayerTexture.loadFromFile("../Assets/Sprites/Player.png");
-    //this->PlayerShape.setTexture(this->PlayerTexture);
 }
 
 void Player::setRotation(std::string direction){
     assetPlayer->turnAsset(direction);
+    std::cout << direction;
+}
+
+void Player::setAngle(float angle) {
+    assetPlayer->setAngle(angle);
 }
 

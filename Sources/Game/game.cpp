@@ -97,22 +97,29 @@ void Game::handlePlayerInput(sf::Event event, bool isPressed)
 
     int DeplacmentValueX = 0;
     int DeplacmentValueY = 0;
+    std::string direction;
 
     if (isPressed) {
         if (event.key.code == sf::Keyboard::Z) {
             DeplacmentValueY = (-1);
+            direction = "Up";
         }
         if (event.key.code == sf::Keyboard::S) {
             DeplacmentValueY = 1;
+            direction = "Down";
         }
         if (event.key.code == sf::Keyboard::Q) {
             DeplacmentValueX = (-1);
+            direction = "Left";
         }
         if (event.key.code == sf::Keyboard::D) {
             DeplacmentValueX = 1;
+            direction = "Right";
         }
     }
 
+    player.setRotation(direction);
     player.playerMovement(DeplacmentValueX, DeplacmentValueY);
     player.setPlayerPosition();
+
 }

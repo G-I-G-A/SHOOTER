@@ -14,6 +14,7 @@ public:
     void PlayerDraw();
     void playerMovement(int x, int y);
     void setPlayerPosition();
+    void setRotation(std::string direction);
 
 
 protected:

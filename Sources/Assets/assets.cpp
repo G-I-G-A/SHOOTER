@@ -39,6 +39,26 @@ void Assets::setMovement(float x, float y)
     m_assetSprite.setPosition(m_spritePosX, m_spritePosY);
 }
 
+void Assets::turnAsset(std::string direction)
+{
+    float angle = 0.0f;
+
+    if(direction == "Left"){
+        angle = -90.0f;
+    }
+    if(direction == "Right"){
+        angle = 90.0f;
+    }
+    if(direction == "Up"){
+        angle = -180.0f;
+    }
+    if(direction == "Down"){
+        angle = 180.0f;
+    }
+    m_angle += angle;
+    m_assetSprite.setRotation(m_angle);
+}
+
 float Assets::getAngle(){return m_angle;}
 sf::Sprite Assets::getSprite(){return m_assetSprite;}
 sf::Texture Assets::getTexture(){return m_assetTexture;}

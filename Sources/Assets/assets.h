@@ -16,6 +16,7 @@ public:
     virtual sf::Sprite getSprite();
     virtual void setAngle(float angle);
     virtual void setMovement(float x, float y);
+    virtual void turnAsset(std::string direction);
 
 protected:
     sf::Texture m_assetTexture;

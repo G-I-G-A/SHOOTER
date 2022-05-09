@@ -109,7 +109,7 @@ void Field::updateEnemies()
             if (posX == maxRangeX){
                 wayBack = true;
                 for (unsigned long long j = 0; j < Enemy::EnemiesSprites.size(); ++j){
-                    Enemy::EnemiesSprites[j]->setAngle(Enemy::EnemiesSprites[j]->getAngle() + 180.0f);
+                    Enemy::EnemiesSprites[j]->turnAsset("Down");
                 }
 
             }
@@ -122,7 +122,7 @@ void Field::updateEnemies()
             if (posX == 0.0f){
                 wayBack = false;
                 for (unsigned long long j = 0; j < Enemy::EnemiesSprites.size(); ++j){
-                    Enemy::EnemiesSprites[j]->setAngle(Enemy::EnemiesSprites[j]->getAngle() - 180.0f);
+                    Enemy::EnemiesSprites[j]->turnAsset("Up");
                 }
             }
         }

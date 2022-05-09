@@ -34,3 +34,8 @@ void Player::PlayerDraw() {
     //this->PlayerTexture.loadFromFile("../Assets/Sprites/Player.png");
     //this->PlayerShape.setTexture(this->PlayerTexture);
 }
+
+void Player::setRotation(std::string direction){
+    assetPlayer->turnAsset(direction);
+}
+

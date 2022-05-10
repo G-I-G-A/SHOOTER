@@ -17,6 +17,7 @@ INCLUDEPATH += "..\SFML-2.5.1\include"
 DEPENDPATH += "..\SFML-2.5.1\include"
 
 SOURCES += \
+        Assets/assets.cpp \
         Bullet/bullet.cpp \
         Enemy/enemy.cpp \
         Field/field.cpp \
@@ -27,6 +28,7 @@ SOURCES += \
         main.cpp
 
 HEADERS += \
+    Assets/assets.h \
     Bullet/bullet.h \
     Enemy/enemy.h \
     Field/field.h \

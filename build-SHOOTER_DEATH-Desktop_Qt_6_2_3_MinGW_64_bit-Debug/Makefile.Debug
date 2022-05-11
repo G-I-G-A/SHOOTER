@@ -701,7 +701,10 @@ debug/player.o: ../Sources/Player/player.cpp ../Sources/Player/player.h \
 		../../SFML-2.5.1/include/SFML/Graphics/Sprite.hpp \
 		../../SFML-2.5.1/include/SFML/Graphics/Text.hpp \
 		../../SFML-2.5.1/include/SFML/Graphics/VertexBuffer.hpp \
-		../Sources/Assets/assets.h
+		../Sources/Assets/assets.h \
+		../Sources/Field/field.h \
+		../Sources/Field/renderfield.h \
+		../Sources/Enemy/enemy.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\player.o ..\Sources\Player\player.cpp
 
 debug/main.o: ../Sources/main.cpp ../Sources/Game/game.h \

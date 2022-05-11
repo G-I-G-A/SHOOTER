@@ -6,12 +6,6 @@ Assets::Assets(float x, float y, float width, float height, float angle, std::st
     draw();
 }
 
-Assets::Assets(float x, float y, float width, float height, float angle)
-    : m_spritePosX(x), m_spritePosY(y),m_width(width), m_height(height), m_angle(angle)
-{
-    draw();
-}
-
 Assets::~Assets()
 {
 
@@ -70,7 +64,7 @@ void Assets::turnAsset(std::string direction)
     }
     m_angle += angle;
     m_assetSprite.setRotation(m_angle);
-    std::cout << angle;
+    //std::cout << angle;
 }
 
 float Assets::getAngle(){return m_angle;}

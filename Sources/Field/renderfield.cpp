@@ -25,7 +25,7 @@ RenderField::~RenderField() {}
 void RenderField::initSpriteOnMap(int type, int lines, int columns) {
 
     //std::cout << "line: " << lines << "\t column: " << columns << "\n";
-    texture.loadFromFile("../Assets/AssetsFiles/Sprites/Set.png");
+    texture.loadFromFile("../Assets/Sprites/Set.png");
 
     switch (type) {
     case 1:

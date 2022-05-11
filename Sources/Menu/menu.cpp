@@ -107,7 +107,7 @@ void Menu::notice() {
     PrintRules.setCharacterSize(24);
     PrintRules.setPosition(20, 0);
 
-    textureNoticeB.loadFromFile("../Assets/AssetsFiles/button/exit_menu.png"); // mettre les images dans le bon projet
+    textureNoticeB.loadFromFile("../Assets/button/exit_menu.png"); // mettre les images dans le bon projet
     spriteNoticeB.setTexture(textureNoticeB);
     spriteNoticeB.setPosition(500, 755);
     spriteNoticeB.setScale(0.5, 0.5);
@@ -133,8 +133,8 @@ void Menu::notice() {
 
 void Menu::fontTtf () {
 
-    fontTittle.loadFromFile("../Assets/AssetsFiles/font/Amatic-Bold.ttf");
-    font.loadFromFile("../Assets/AssetsFiles/font/OpenSans-Bold.ttf");
+    fontTittle.loadFromFile("../Assets/font/Amatic-Bold.ttf");
+    font.loadFromFile("../Assets/font/OpenSans-Bold.ttf");
 
     textTittle.setFont(fontTittle);
     textTittle.setString("SHOOTER");
@@ -155,9 +155,9 @@ void Menu::fontTtf () {
 
 void Menu::setMenuSprites() {
 
-    background.loadFromFile("../Assets/AssetsFiles/Background/menuBackground.jpg");
-    textureExitB.loadFromFile("../Assets/AssetsFiles/Sprites/exit.png"); // mettre les images dans le bon projet
-    textureRuleB.loadFromFile("../Assets/AssetsFiles/button/info.png"); // mettre les images dans le bon projet
+    background.loadFromFile("../Assets/Background/menuBackground.jpg");
+    textureExitB.loadFromFile("../Assets/Sprites/exit.png"); // mettre les images dans le bon projet
+    textureRuleB.loadFromFile("../Assets/button/info.png"); // mettre les images dans le bon projet
 
     spriteBackground.setTexture(background);
     spriteBackground.setTextureRect(sf::IntRect(0, 0, 1600, 900));

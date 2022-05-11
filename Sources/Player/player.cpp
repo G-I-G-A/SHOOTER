@@ -14,7 +14,7 @@ sf::Sprite Player::getPlayerSprite() {
 
 void Player::PlayerDraw() {
 
-    std::string filename = "../Assets/AssetsFiles/Sprites/Player.png";
+    std::string filename = "../Assets/Sprites/Player.png";
     assetPlayer = new Assets(playerPosX, playerPosY, 96.0f, 96.0f, 0.0f, filename);
     PlayerSprite = assetPlayer->getSprite();
 }
@@ -35,6 +35,7 @@ void Player::playerMovement(int x, int y) {
 }
 
 void Player::setPlayerPosition() {
+
     PlayerSprite.setPosition(playerPosX, playerPosY);
 
 }
@@ -102,13 +103,11 @@ void Player::isMovable() {
 
 void Player::setRotation(std::string direction){
 
-    assetPlayer->turnAsset(direction);
-    std::cout << direction;
-     assetPlayer->turnAsset(direction);
+    //assetPlayer->turnAsset(direction);
+
 }
 
 void Player::setAngle(float angle) {
-    //assetPlayer->setAngle(angle);
 
     PlayerSprite.setRotation(angle);
 }

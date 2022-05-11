@@ -19,13 +19,10 @@ Enemy::~Enemy()
 
 void Enemy::EnemyDraw(){
 
-    std::string filename = "../Assets/AssetsFiles/Sprites/Enemy.png";
+    std::string filename = "../Assets/Sprites/Enemy.png";
     m_assetEnemy = new Assets(m_posX, m_posY, 96.0f, 96.0f, m_angleInit, filename);
     spriteEnemy = m_assetEnemy->getSprite();
     EnemiesSprites.push_back(m_assetEnemy);
-    /*m_textureEnemy.loadFromFile("../Assets/Sprites/Enemy.png");
-    enemySprite->setTexture(this->m_textureEnemy);*/
-    //std::cout << EnemiesSprites.size();
 }
 
 float Enemy::getPower() { return m_power;}

@@ -69,7 +69,7 @@ void Game::update(sf::Time deltaTime)
 {
     if(Field::Instance()->allEnnemies.size() > 0)
     {
-         Field::Instance()->updateEnemies();;
+         Field::Instance()->updateEnemies();
     } else {
         std::cout << "No Ennemies" << std::endl;
     };

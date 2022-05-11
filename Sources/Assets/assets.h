@@ -8,7 +8,6 @@ class Assets
 {
 public:
     Assets(float x, float y, float width, float height, float angle, std::string filename);
-    Assets(float x, float y, float width, float height, float angle);
     virtual ~Assets();
 
     void draw();

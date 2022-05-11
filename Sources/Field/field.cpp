@@ -23,7 +23,7 @@ void Field::getTilesFromFile()
 {
     string lineR;
     ifstream tile;
-    tile.open ("../Assets/AssetsFiles/ExternFiles/setupField.txt");
+    tile.open ("../Assets/ExternFiles/setupField.txt");
 
     if (tile.is_open()) {
         while (getline(tile,lineR)) {

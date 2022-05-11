@@ -12,8 +12,19 @@
 class Field
 {
 public:
+<<<<<<< Updated upstream
     Field();
     ~Field();
+=======
+
+    static Field* Instance();
+
+    //Field();
+    //virtual ~Field();
+
+    Field(Field&) = delete;
+    void operator=(Field&) = delete;
+>>>>>>> Stashed changes
 
     RenderField map;
 
@@ -36,6 +47,15 @@ protected:
     std::string getTile;
     std::vector<char> allTiles;
     sf::Texture texture;
+<<<<<<< Updated upstream
+=======
+    float posX = 0.0f;
+    bool wayBack = false;
+
+private:
+  static Field* _instance;
+  static std::mutex _mutex;
+>>>>>>> Stashed changes
 
     float posX = 0.0f;
     bool wayBack = false;

@@ -8,6 +8,7 @@ class Assets
 {
 public:
     Assets(float x, float y, float width, float height, float angle, std::string filename);
+    Assets(float x, float y, float width, float height, float angle);
     virtual ~Assets();
 
     void draw();
@@ -18,6 +19,7 @@ public:
     virtual sf::Sprite getSprite();
     virtual void setAngle(float angle);
     virtual void setMovement(float x, float y);
+    virtual void setPosition(float x, float y);
     virtual void turnAsset(std::string direction);
 
 protected:
@@ -31,7 +33,8 @@ protected:
     float m_angle;
     std::string m_filename;
 
-
+private:
+    float m_origin = 48.0f;
 };
 
 #endif // ASSETS_H

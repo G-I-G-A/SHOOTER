@@ -12,8 +12,7 @@ int main()
     menu.mainMenu();
     //RenderField map;
     //map.setSpriteOnMap();
-    Field field;
-    field.getTilesFromFile();
+    Field::Instance()->getTilesFromFile();
     Game game;
     game.Run();
     return (0);

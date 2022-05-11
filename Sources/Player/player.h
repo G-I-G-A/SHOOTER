@@ -24,6 +24,18 @@ protected:
     Assets* assetPlayer;
     float playerPosX;
     float playerPosY;
+<<<<<<< Updated upstream
+=======
+    float angleVisee;
+    bool borderReach;
+    int VBorder;
+    int HBorder;
+
+    bool CanMoveUp = true;
+    bool CanMoveDown = true;
+    bool CanMoveLeft = true;
+    bool CanMoveRight = true;
+>>>>>>> Stashed changes
 };
 
 

@@ -13,7 +13,11 @@ void Field::getTilesFromFile()
     string lineR;
     ifstream tile;
 
+<<<<<<< Updated upstream
     tile.open ("../Assets/ExternFiles/setupField.txt");
+=======
+    tile.open ("../Assets/AssetsFiles/ExternFiles/setupField.txt");
+>>>>>>> Stashed changes
 
     if (tile.is_open()) {
         while (getline(tile,lineR)) {
@@ -78,26 +82,45 @@ void Field::checkPutTower() {
 void Field::PutEnemies(){
 
     //creation des ennemies || a modifier
-    Enemy* enemy1 = new Enemy ("enemy1", 100, 1.0f, 1.0f, 80.0f, 230.0f, 270.0f);
+    Enemy* enemy1 = new Enemy("enemy1", 100, 1.0f, 1.0f, 80.0f, 230.0f, 270.0f);
     Enemy* enemy2 = new Enemy("enemy2", 100,1.0f,1.0f, 120.f, 540.0f, 270.0f);
     Enemy* enemy3 = new Enemy("enemy3", 100,1.0f,1.0f, 960.0f, 750.0f, 180.0f);
+
 
     allEnnemies.push_back(enemy1);
     allEnnemies.push_back(enemy2);
     allEnnemies.push_back(enemy3);
+<<<<<<< Updated upstream
 
     /*enemy1->initEnemyOnMap('R', enemy1->getPositionX(), enemy1->getPositionY());
     enemy2->initEnemyOnMap('R', enemy2->getPositionX(), enemy2->getPositionY());
     enemy2->initEnemyOnMap('T', enemy3->getPositionX(), enemy3->getPositionY());*/
+=======
+
+    //std::cout << allEnnemies.size();
+
+/*
+    enemy1->initEnemyOnMap('R', enemy1->getPositionX(), enemy1->getPositionY());
+    enemy2->initEnemyOnMap('R', enemy2->getPositionX(), enemy2->getPositionY());
+    enemy2->initEnemyOnMap('T', enemy3->getPositionX(), enemy3->getPositionY());
+*/
+
+>>>>>>> Stashed changes
 }
 
 void Field::updateEnemies()
 {
+<<<<<<< Updated upstream
 
     float step = 0.25f;
     int maxRangeX = 300.0f;
 
 
+=======
+    float step = 0.25f;
+    int maxRangeX = 300.0f;
+
+>>>>>>> Stashed changes
     for(unsigned long long i = 0; i < Enemy::EnemiesSprites.size(); ++i)
     {
         if(posX < maxRangeX && wayBack == false)
@@ -111,10 +134,16 @@ void Field::updateEnemies()
                 for (unsigned long long j = 0; j < Enemy::EnemiesSprites.size(); ++j){
                     Enemy::EnemiesSprites[j]->turnAsset("Down");
                 }
+<<<<<<< Updated upstream
 
             }
         }
         if (posX > 0.0f && wayBack == true ){
+=======
+            }
+        }
+         if (posX > 0.0f && wayBack == true ){
+>>>>>>> Stashed changes
             Enemy::EnemiesSprites[0]->setMovement(-step, 0.0f);
             Enemy::EnemiesSprites[1]->setMovement(-step, 0.0f);
             Enemy::EnemiesSprites[2]->setMovement(0.0f, step);
@@ -127,7 +156,13 @@ void Field::updateEnemies()
             }
         }
     }
+<<<<<<< Updated upstream
 
         //std::cout << allEnnemies[i]->getName();
         //Enemy::EnemiesSprites[i]->setMovement(dirX, dirY);
+=======
+    //std::cout << allEnnemies[i]->getName();
+    //Enemy::EnemiesSprites[i]->setMovement(dirX, dirY);
+>>>>>>> Stashed changes
 }
+

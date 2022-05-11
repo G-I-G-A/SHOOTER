@@ -35,6 +35,7 @@ public:
 
 protected:
     sf::Texture m_textureEnemy;
+    sf::Sprite spriteEnemy;
     std::string m_name;
     Assets* m_assetEnemy;
 

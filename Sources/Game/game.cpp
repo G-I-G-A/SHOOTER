@@ -86,6 +86,11 @@ void Game::render()
     for(unsigned long long i = 0; i < Enemy::EnemiesSprites.size(); ++i) {
          MainWindow.draw(Enemy::EnemiesSprites[i]->getSprite());
     }
+<<<<<<< Updated upstream
+=======
+
+    MainWindow.draw(player.getPlayerSprite());
+>>>>>>> Stashed changes
     //MainWindow.draw(Enemy::enemySprite);
     MainWindow.draw(player.getPlayerShape());
 
@@ -97,11 +102,17 @@ void Game::handlePlayerInput(sf::Event event, bool isPressed)
 
     int DeplacmentValueX = 0;
     int DeplacmentValueY = 0;
+<<<<<<< Updated upstream
     std::string direction;
+=======
+    float angleVision = 0.0f;
+    player.resetMovable();
+>>>>>>> Stashed changes
 
     if (isPressed) {
         if (event.key.code == sf::Keyboard::Z) {
             DeplacmentValueY = (-1);
+<<<<<<< Updated upstream
             direction = "Up";
         }
         if (event.key.code == sf::Keyboard::S) {
@@ -122,4 +133,27 @@ void Game::handlePlayerInput(sf::Event event, bool isPressed)
     player.playerMovement(DeplacmentValueX, DeplacmentValueY);
     player.setPlayerPosition();
 
+=======
+            angleVision = 180.0f;
+        }
+        if (event.key.code == sf::Keyboard::S) {
+            DeplacmentValueY = 1;
+            angleVision = 0.0f;
+        }
+        if (event.key.code == sf::Keyboard::Q) {
+            DeplacmentValueX = (-1);
+            angleVision = 90.0f;
+        }
+        if (event.key.code == sf::Keyboard::D) {
+            DeplacmentValueX = 1;
+            angleVision = 270.0f;
+        }
+        player.isMovable();
+        player.setAngle(angleVision);
+        player.playerMovement(DeplacmentValueX, DeplacmentValueY);
+
+    }
+    player.changeScene();
+    //player.setPlayerPosition();
+>>>>>>> Stashed changes
 }

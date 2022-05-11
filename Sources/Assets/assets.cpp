@@ -6,6 +6,12 @@ Assets::Assets(float x, float y, float width, float height, float angle, std::st
     draw();
 }
 
+Assets::Assets(float x, float y, float width, float height, float angle)
+    : m_spritePosX(x), m_spritePosY(y),m_width(width), m_height(height), m_angle(angle)
+{
+    draw();
+}
+
 Assets::~Assets()
 {
 
@@ -16,7 +22,7 @@ void Assets::init()
     m_assetSprite.setPosition(m_spritePosX, m_spritePosY);
     m_assetSprite.setRotation(m_angle);
     m_assetSprite.setTextureRect(sf::IntRect(0 * m_width, 0 * m_height, m_width, m_height));
-    m_assetSprite.setOrigin(48.0f, 48.0f); //Ajouter une variable origine ?
+    m_assetSprite.setOrigin(m_origin, m_origin);
 }
 
 void Assets::draw()
@@ -36,6 +42,13 @@ void Assets::setMovement(float x, float y)
 {
     m_spritePosX += x;
     m_spritePosY += y;
+    m_assetSprite.setPosition(m_spritePosX, m_spritePosY);
+}
+
+void Assets::setPosition(float x, float y)
+{
+    m_spritePosX = x;
+    m_spritePosY = y;
     m_assetSprite.setPosition(m_spritePosX, m_spritePosY);
 }
 

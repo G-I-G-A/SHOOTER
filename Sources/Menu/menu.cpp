@@ -19,7 +19,7 @@ void Menu::mainMenu() {
             if(eventMenu.key.code == sf::Keyboard::Escape)
                 windowMenu.close();
 
-            if ((eventMenu.mouseButton.y > 585 && eventMenu.mouseButton.y < 715) && (eventMenu.mouseButton.x > 620 && eventMenu.mouseButton.x < 960)) {
+            if ((eventMenu.mouseButton.y > 500 && eventMenu.mouseButton.y < 700) && (eventMenu.mouseButton.x > 525 && eventMenu.mouseButton.x < 1125)) {
                 windowMenu.close();
             }
             else if ((eventMenu.mouseButton.y > 20 && eventMenu.mouseButton.y < 70) && (eventMenu.mouseButton.x > 1530 && eventMenu.mouseButton.x < 1580)) {
@@ -71,7 +71,11 @@ void Menu::notice() {
 
     // Accede aux scores depuis un fichier txt externe
 
+<<<<<<< Updated upstream
     myfile.open ("C:/Users/julie/Documents/Exos/SHOOTER/Assets/ExternFiles/scores.txt");
+=======
+    myfile.open ("../Assets/ExternFiles/scores.txt");
+>>>>>>> Stashed changes
 
     if (myfile.is_open()) {
         while (getline(myfile,line)) {
@@ -91,7 +95,11 @@ void Menu::notice() {
 
     // Accede aux regles depuis un fichier txt externe
 
+<<<<<<< Updated upstream
     Rules.open (".. /Assets/ExternFiles/rules.txt");
+=======
+    Rules.open ("../Assets/ExternFiles/rules.txt");
+>>>>>>> Stashed changes
 
     if (Rules.is_open()) {
         while (getline(Rules,lineR)) {
@@ -108,7 +116,11 @@ void Menu::notice() {
     PrintRules.setCharacterSize(24);
     PrintRules.setPosition(20, 0);
 
+<<<<<<< Updated upstream
     textureNoticeB.loadFromFile("../Assets/button/exit_menu.png");
+=======
+    textureNoticeB.loadFromFile("../Assets/AssetsFiles/button/exit_menu.png"); // mettre les images dans le bon projet
+>>>>>>> Stashed changes
     spriteNoticeB.setTexture(textureNoticeB);
     spriteNoticeB.setPosition(500, 755);
     spriteNoticeB.setScale(0.5, 0.5);
@@ -134,8 +146,13 @@ void Menu::notice() {
 
 void Menu::fontTtf () {
 
+<<<<<<< Updated upstream
     fontTittle.loadFromFile("../Assets/Font/Amatic-Bold.ttf");
     font.loadFromFile("../Assets/Font/OpenSans-Bold.ttf");
+=======
+    fontTittle.loadFromFile("../Assets/AssetsFiles/font/Amatic-Bold.ttf");
+    font.loadFromFile("../Assets/AssetsFiles/font/OpenSans-Bold.ttf");
+>>>>>>> Stashed changes
 
     textTittle.setFont(fontTittle);
     textTittle.setString("SHOOTER");
@@ -156,14 +173,20 @@ void Menu::fontTtf () {
 
 void Menu::setMenuSprites() {
 
+<<<<<<< Updated upstream
     background.loadFromFile("../Assets/Background/menuBackground.jpg");
     textureExitB.loadFromFile("../Assets/button/exit_menu.png");
     textureRuleB.loadFromFile("../Assets/button/block_question.png");
+=======
+    background.loadFromFile("../Assets/AssetsFiles/Background/menuBackground.jpg");
+    textureExitB.loadFromFile("../Assets/AssetsFiles/Sprites/exit.png"); // mettre les images dans le bon projet
+    textureRuleB.loadFromFile("../Assets/AssetsFiles/button/info.png"); // mettre les images dans le bon projet
+>>>>>>> Stashed changes
 
     spriteBackground.setTexture(background);
     spriteBackground.setTextureRect(sf::IntRect(0, 0, 1600, 900));
     spriteExitB.setTexture(textureExitB);
-    spriteExitB.setPosition(620, 585);
+    spriteExitB.setPosition(500, 525);
     spriteRuleB.setTexture(textureRuleB);
     spriteRuleB.setPosition(1530, 20);
 }

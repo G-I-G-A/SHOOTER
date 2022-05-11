@@ -7,38 +7,36 @@
 #include "renderfield.h"
 #include "Enemy/enemy.h" //
 #include "Player/player.h"//
+#include <mutex>
 
 
 class Field
 {
 public:
-<<<<<<< Updated upstream
-    Field();
-    ~Field();
-=======
 
     static Field* Instance();
-
-    //Field();
-    //virtual ~Field();
-
     Field(Field&) = delete;
     void operator=(Field&) = delete;
->>>>>>> Stashed changes
+
 
     RenderField map;
-
     void getTilesFromFile();
-    void checkPutTower();
+    void checkMap();
+    void resetPosition();
 
     void PutSprite(); //
     void PutEnemies(); //
+    void PutPlayer(); //
     void updateEnemies(); //
+
+    std::vector<char> getAllTiles();
 
 
     std::vector<Enemy*> allEnnemies; //
 
 protected:
+    Field();
+    virtual ~Field();
     int nbLines = 0;
     unsigned long long indexColumns = 0;
     int indexLines = 0;
@@ -47,18 +45,12 @@ protected:
     std::string getTile;
     std::vector<char> allTiles;
     sf::Texture texture;
-<<<<<<< Updated upstream
-=======
     float posX = 0.0f;
     bool wayBack = false;
 
 private:
   static Field* _instance;
   static std::mutex _mutex;
->>>>>>> Stashed changes
-
-    float posX = 0.0f;
-    bool wayBack = false;
 };
 
 #endif // FIELD_H

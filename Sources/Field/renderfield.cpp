@@ -25,12 +25,7 @@ RenderField::~RenderField() {}
 void RenderField::initSpriteOnMap(int type, int lines, int columns) {
 
     //std::cout << "line: " << lines << "\t column: " << columns << "\n";
-
-<<<<<<< Updated upstream
-    texture.loadFromFile("../Assets/Sprites/Set.png");
-=======
     texture.loadFromFile("../Assets/AssetsFiles/Sprites/Set.png");
->>>>>>> Stashed changes
 
     switch (type) {
     case 1:

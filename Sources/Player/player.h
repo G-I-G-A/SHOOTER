@@ -8,24 +8,28 @@
 class Player
 {
 public:
-    Player(float x, float y);
+    Player();
     void InitializedPlayer();
     sf::Sprite getPlayerShape();
+    sf::Sprite getPlayerSprite();
     void PlayerDraw();
     void playerMovement(int x, int y);
     void setPlayerPosition();
     void setRotation(std::string direction);
+    void changeScene();
+
+    void isMovable();
+    void resetMovable();
     void setAngle(float angle);
 
-
 protected:
-    sf::Sprite PlayerShape;
+    sf::Sprite PlayerSprite;
     sf::Texture PlayerTexture;
     Assets* assetPlayer;
+
     float playerPosX;
     float playerPosY;
-<<<<<<< Updated upstream
-=======
+
     float angleVisee;
     bool borderReach;
     int VBorder;
@@ -35,7 +39,6 @@ protected:
     bool CanMoveDown = true;
     bool CanMoveLeft = true;
     bool CanMoveRight = true;
->>>>>>> Stashed changes
 };
 
 

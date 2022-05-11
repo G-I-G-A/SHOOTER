@@ -1,20 +1,12 @@
 #include "player.h"
+#include "../Field/field.h"
 
-Player::Player(float x, float y) : playerPosX(x), playerPosY(y)
+Player::Player()
 {
-<<<<<<< Updated upstream
-    setPlayerPosition();
-    PlayerDraw();
-
-}
-
-void Player::InitializedPlayer() {
-
-=======
     InitializedPlayer();
     PlayerDraw();
-
 }
+
 
 sf::Sprite Player::getPlayerSprite() {
     return PlayerSprite;
@@ -31,26 +23,20 @@ void Player::InitializedPlayer() {
     playerPosX = 80.0f;
     playerPosY = 80.0f;
     angleVisee = 180.0f;
->>>>>>> Stashed changes
     setPlayerPosition();
-}
-
-sf::Sprite Player::getPlayerShape() {
-    return PlayerShape;
 }
 
 void Player::playerMovement(int x, int y) {
 
-    playerPosX += 5 * x;
-    playerPosY += 5 * y;
+    if ((CanMoveLeft && x < 0) || (CanMoveRight && x > 0))
+        playerPosX += 32 * x;
+    if ((CanMoveUp && y < 0) || (CanMoveDown && y > 0))
+        playerPosY += 32 * y;
 }
 
 void Player::setPlayerPosition() {
-<<<<<<< Updated upstream
-    PlayerShape.setPosition(playerPosX, playerPosY);
-=======
-
     PlayerSprite.setPosition(playerPosX, playerPosY);
+
 }
 
 void Player::changeScene() {
@@ -79,23 +65,46 @@ void Player::changeScene() {
         // appeler la fonction qui load la map
         // reset la position du perso
     }
->>>>>>> Stashed changes
 }
 
-void Player::PlayerDraw() {
+void Player::resetMovable() {
+    CanMoveUp = true;
+    CanMoveDown = true;
+    CanMoveLeft = true;
+    CanMoveRight = true;
+}
 
-    std::string filename = "../Assets/Sprites/Player.png";
-    assetPlayer = new Assets(playerPosX, playerPosY, 96.0f, 96.0f, 0.0f, filename);
-    PlayerShape = assetPlayer->getSprite();
+void Player::isMovable() {
+
+    auto groundTiles = Field::Instance()->getAllTiles();
+
+    unsigned int PlayerX = (playerPosX / 32);
+    unsigned int PlayerY = (playerPosY / 32);
+
+
+    for (unsigned int i = 0; i < groundTiles.size(); i++) {
+        if (groundTiles[i] != 'G') {
+            if (i == 55 * (PlayerY - 1) + PlayerX) {
+                CanMoveUp = false;
+            }
+            if (i == 55 * (PlayerY + 1) + PlayerX) {
+                CanMoveDown = false;
+            }
+            if (i == (55 * PlayerY) + (PlayerX - 1)) {
+                CanMoveLeft = false;
+            }
+            if (i == (55 * PlayerY) + (PlayerX + 1)) {
+                CanMoveRight = false;
+            }
+        }
+    }
 }
 
 void Player::setRotation(std::string direction){
-<<<<<<< Updated upstream
+
     assetPlayer->turnAsset(direction);
     std::cout << direction;
-=======
      assetPlayer->turnAsset(direction);
->>>>>>> Stashed changes
 }
 
 void Player::setAngle(float angle) {

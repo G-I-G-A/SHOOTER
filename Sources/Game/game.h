@@ -24,6 +24,6 @@ public:
 protected:
     static const sf::Time TimePerFrame;
     Player player;
-    Field field;
+
     std::vector<bullet> allBullets;
 };

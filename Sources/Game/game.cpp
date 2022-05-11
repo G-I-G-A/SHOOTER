@@ -6,7 +6,7 @@ using namespace std;
 const sf::Time Game::TimePerFrame = sf::seconds(1.f/60.f);
 
 Game::Game()
-: MainWindow(sf::VideoMode(1600, 900), "SHOOTER JP"), player (80.0f, 80.0f)
+: MainWindow(sf::VideoMode(1600, 900), "SHOOTER JP"), player ()
 {
 
 }
@@ -20,7 +20,7 @@ void Game::Run()
     sf::Clock clock2;
     sf::Time elapsedTime = clock2.getElapsedTime();
 
-    field.PutEnemies();
+    Field::Instance()->PutEnemies();
 
     while (MainWindow.isOpen())
     {
@@ -67,9 +67,9 @@ void Game::processEvents()
 
 void Game::update(sf::Time deltaTime)
 {
-    if(field.allEnnemies.size() > 0)
+    if(Field::Instance()->allEnnemies.size() > 0)
     {
-        field.updateEnemies();
+         Field::Instance()->updateEnemies();;
     } else {
         std::cout << "No Ennemies" << std::endl;
     };
@@ -86,13 +86,9 @@ void Game::render()
     for(unsigned long long i = 0; i < Enemy::EnemiesSprites.size(); ++i) {
          MainWindow.draw(Enemy::EnemiesSprites[i]->getSprite());
     }
-<<<<<<< Updated upstream
-=======
 
     MainWindow.draw(player.getPlayerSprite());
->>>>>>> Stashed changes
     //MainWindow.draw(Enemy::enemySprite);
-    MainWindow.draw(player.getPlayerShape());
 
     MainWindow.display();
 }
@@ -102,38 +98,12 @@ void Game::handlePlayerInput(sf::Event event, bool isPressed)
 
     int DeplacmentValueX = 0;
     int DeplacmentValueY = 0;
-<<<<<<< Updated upstream
-    std::string direction;
-=======
     float angleVision = 0.0f;
     player.resetMovable();
->>>>>>> Stashed changes
 
     if (isPressed) {
         if (event.key.code == sf::Keyboard::Z) {
             DeplacmentValueY = (-1);
-<<<<<<< Updated upstream
-            direction = "Up";
-        }
-        if (event.key.code == sf::Keyboard::S) {
-            DeplacmentValueY = 1;
-            direction = "Down";
-        }
-        if (event.key.code == sf::Keyboard::Q) {
-            DeplacmentValueX = (-1);
-            direction = "Left";
-        }
-        if (event.key.code == sf::Keyboard::D) {
-            DeplacmentValueX = 1;
-            direction = "Right";
-        }
-    }
-
-    player.setAngle(90.0f);
-    player.playerMovement(DeplacmentValueX, DeplacmentValueY);
-    player.setPlayerPosition();
-
-=======
             angleVision = 180.0f;
         }
         if (event.key.code == sf::Keyboard::S) {
@@ -155,5 +125,4 @@ void Game::handlePlayerInput(sf::Event event, bool isPressed)
     }
     player.changeScene();
     //player.setPlayerPosition();
->>>>>>> Stashed changes
 }

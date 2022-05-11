@@ -368,12 +368,8 @@ debug/field.o: ../Sources/Field/field.cpp ../Sources/Field/field.h \
 		../../SFML-2.5.1/include/SFML/Graphics/VertexBuffer.hpp \
 		../Sources/Field/renderfield.h \
 		../Sources/Enemy/enemy.h \
-<<<<<<< Updated upstream
-		../Sources/Assets/assets.h
-=======
 		../Sources/Assets/assets.h \
 		../Sources/Player/player.h
->>>>>>> Stashed changes
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\field.o ..\Sources\Field\field.cpp
 
 debug/renderfield.o: ../Sources/Field/renderfield.cpp ../Sources/Field/renderfield.h \
@@ -530,13 +526,8 @@ debug/game.o: ../Sources/Game/game.cpp ../Sources/Game/game.h \
 		../../SFML-2.5.1/include/SFML/Graphics/VertexBuffer.hpp \
 		../Sources/Field/renderfield.h \
 		../Sources/Player/player.h \
-<<<<<<< Updated upstream
-		../Sources/Enemy/enemy.h \
-		../Sources/Assets/assets.h \
-=======
 		../Sources/Assets/assets.h \
 		../Sources/Enemy/enemy.h \
->>>>>>> Stashed changes
 		../Sources/Field/field.h \
 		../Sources/Bullet/bullet.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\game.o ..\Sources\Game\game.cpp
@@ -709,15 +700,8 @@ debug/player.o: ../Sources/Player/player.cpp ../Sources/Player/player.h \
 		../../SFML-2.5.1/include/SFML/Graphics/Glsl.inl \
 		../../SFML-2.5.1/include/SFML/Graphics/Sprite.hpp \
 		../../SFML-2.5.1/include/SFML/Graphics/Text.hpp \
-<<<<<<< Updated upstream
-		../../SFML-2.5.1/include/SFML/Graphics/VertexBuffer.hpp
-=======
 		../../SFML-2.5.1/include/SFML/Graphics/VertexBuffer.hpp \
-		../Sources/Assets/assets.h \
-		../Sources/Field/field.h \
-		../Sources/Field/renderfield.h \
-		../Sources/Enemy/enemy.h
->>>>>>> Stashed changes
+		../Sources/Assets/assets.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\player.o ..\Sources\Player\player.cpp
 
 debug/main.o: ../Sources/main.cpp ../Sources/Game/game.h \
@@ -797,13 +781,8 @@ debug/main.o: ../Sources/main.cpp ../Sources/Game/game.h \
 		../../SFML-2.5.1/include/SFML/Graphics/VertexBuffer.hpp \
 		../Sources/Field/renderfield.h \
 		../Sources/Player/player.h \
-<<<<<<< Updated upstream
-		../Sources/Enemy/enemy.h \
-		../Sources/Assets/assets.h \
-=======
 		../Sources/Assets/assets.h \
 		../Sources/Enemy/enemy.h \
->>>>>>> Stashed changes
 		../Sources/Field/field.h \
 		../Sources/Bullet/bullet.h \
 		../Sources/Menu/menu.h \

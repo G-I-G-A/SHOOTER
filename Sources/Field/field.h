@@ -28,6 +28,7 @@ public:
     void PutEnemies(); //
     void PutPlayer(); //
     void updateEnemies(); //
+    void enemiesShoot();
 
     std::vector<char> getAllTiles();
 
@@ -47,6 +48,8 @@ protected:
     sf::Texture texture;
     float posX = 0.0f;
     bool wayBack = false;
+    sf::Clock Clock;
+    sf::Time clockElapsed ;
 
 private:
   static Field* _instance;

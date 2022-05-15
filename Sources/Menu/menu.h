@@ -5,6 +5,8 @@
 #include <SFML/Audio.hpp>
 #include <iostream>
 #include <fstream>
+#include "Game/game.h"
+
 
 class Menu
 {

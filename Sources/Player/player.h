@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include "Assets/assets.h"
+#include "Bullet/bullet.h"
 
 class Player
 {
@@ -22,10 +23,20 @@ public:
     void resetMovable();
     void setAngle(float angle);
 
+    float getPosX();
+    float getPosY();
+    float getAngle();
+
+    void Shoot();
+    void updateShoot();
+    static std::vector<Bullet*> allPlayerBullets;
+
 protected:
     sf::Sprite PlayerSprite;
     sf::Texture PlayerTexture;
     Assets* assetPlayer;
+    Bullet* m_playerBullet;
+
 
     float playerPosX;
     float playerPosY;

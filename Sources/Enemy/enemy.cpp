@@ -2,6 +2,7 @@
 
 sf::Sprite *Enemy::enemySprite;
 std::vector<Assets*> Enemy::EnemiesSprites;
+std::vector<Bullet*> Enemy::allBullets;
 
 using namespace std;
 
@@ -25,6 +26,12 @@ void Enemy::EnemyDraw(){
     EnemiesSprites.push_back(m_assetEnemy);
 }
 
+void Enemy::SpawnShot() {
+
+    m_assetBullet = new Bullet(m_assetEnemy->getPosX(), m_assetEnemy->getPosY(), m_assetEnemy->getAngle(), false, 100.0f);
+    allBullets.push_back(m_assetBullet);
+}
+
 float Enemy::getPower() { return m_power;}
 float Enemy::getHealth() { return m_health;}
 float Enemy::getEnemySpeed() {return m_speed;}
@@ -33,10 +40,12 @@ float Enemy::getPositionY() {return m_posY;}
 std::string Enemy::getName() {return m_name;}
 sf::Texture Enemy::getTexture() {return m_textureEnemy;}
 sf::Sprite Enemy::getSprite() {return *enemySprite;}
+float Enemy::getAngleInit() {return m_angleInit;}
 
 void Enemy::setDamage(float damages)
 {
     m_health = m_health - damages;
 }
+
 
 

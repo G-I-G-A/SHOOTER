@@ -25,5 +25,4 @@ protected:
     static const sf::Time TimePerFrame;
     Player player;
 
-    std::vector<bullet> allBullets;
 };

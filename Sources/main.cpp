@@ -8,12 +8,12 @@ using namespace std;
 
 int main()
 {
+    Field::Instance()->getTilesFromFile();
     Menu menu;
     menu.mainMenu();
     //RenderField map;
     //map.setSpriteOnMap();
-    Field::Instance()->getTilesFromFile();
-    Game game;
-    game.Run();
+//    Game game;
+//    game.Run();
     return (0);
 }

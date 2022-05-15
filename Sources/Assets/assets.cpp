@@ -70,3 +70,5 @@ void Assets::turnAsset(std::string direction)
 float Assets::getAngle(){return m_angle;}
 sf::Sprite Assets::getSprite(){return m_assetSprite;}
 sf::Texture Assets::getTexture(){return m_assetTexture;}
+float Assets::getPosX(){return m_spritePosX;}
+float Assets::getPosY(){return m_spritePosY;}

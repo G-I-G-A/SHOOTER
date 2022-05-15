@@ -141,8 +141,31 @@ void Field::updateEnemies()
         }
     }
 
+    clockElapsed = Clock.getElapsedTime();
+    if(clockElapsed.asSeconds() > 0.7)
+    {
+        for(unsigned long long i = 0; i < allEnnemies.size(); ++i)
+        {
+            allEnnemies[i]->SpawnShot();
+        }
+        Clock.restart();
+    }
+
+
         //std::cout << allEnnemies[i]->getName();
         //Enemy::EnemiesSprites[i]->setMovement(dirX, dirY);
 
 }
 
+void Field::enemiesShoot()
+{
+
+
+    float stepBullet = 5.0f;
+    for(unsigned long long i = 0; i < Enemy::allBullets.size(); ++i)
+    {
+        Enemy::allBullets[i]->moveBullet(stepBullet);
+    }
+
+
+}

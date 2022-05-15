@@ -16,6 +16,8 @@ public:
     virtual float getAngle();
     virtual sf::Texture getTexture();
     virtual sf::Sprite getSprite();
+    virtual float getPosX();
+    virtual float getPosY();
     virtual void setAngle(float angle);
     virtual void setMovement(float x, float y);
     virtual void setPosition(float x, float y);

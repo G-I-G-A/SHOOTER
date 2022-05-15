@@ -22,6 +22,7 @@ void Game::Run()
 
     Field::Instance()->PutEnemies();
 
+
     while (MainWindow.isOpen())
     {
         elapsedTime = clock2.getElapsedTime();
@@ -73,6 +74,13 @@ void Game::update(sf::Time deltaTime)
     } else {
         std::cout << "No Ennemies" << std::endl;
     };
+
+    Field::Instance()->enemiesShoot();
+
+    for(unsigned long long i = 0; i < Player::allPlayerBullets.size(); ++i) {
+        Player::allPlayerBullets[i]->moveBullet(5.0f);
+    }
+
 }
 
 void Game::render()
@@ -87,7 +95,16 @@ void Game::render()
          MainWindow.draw(Enemy::EnemiesSprites[i]->getSprite());
     }
 
+    for(unsigned long long i = 0; i < Enemy::allBullets.size(); ++i) {
+         MainWindow.draw(Enemy::allBullets[i]->getRectShape());
+    }
+
+    for(unsigned long long i = 0; i < Player::allPlayerBullets.size(); ++i) {
+         MainWindow.draw(Player::allPlayerBullets[i]->getRectShape());
+    }
+
     MainWindow.draw(player.getPlayerSprite());
+
     //MainWindow.draw(Enemy::enemySprite);
 
     MainWindow.display();
@@ -98,28 +115,34 @@ void Game::handlePlayerInput(sf::Event event, bool isPressed)
 
     int DeplacmentValueX = 0;
     int DeplacmentValueY = 0;
-    float angleVision = 0.0f;
+    //float angleVision = 0.0f;
     player.resetMovable();
 
     if (isPressed) {
         if (event.key.code == sf::Keyboard::Z) {
             DeplacmentValueY = (-1);
-            angleVision = 180.0f;
+            //angleVision = 180.0f;
+            player.setAngle(180.0f);
         }
         if (event.key.code == sf::Keyboard::S) {
             DeplacmentValueY = 1;
-            angleVision = 0.0f;
+            //angleVision = 0.0f;
+            player.setAngle(0.0f);
         }
         if (event.key.code == sf::Keyboard::Q) {
             DeplacmentValueX = (-1);
-            angleVision = 90.0f;
+            //angleVision = 90.0f;
+            player.setAngle(90.0f);
         }
         if (event.key.code == sf::Keyboard::D) {
             DeplacmentValueX = 1;
-            angleVision = 270.0f;
+            //angleVision = 270.0f;
+            player.setAngle(270.0f);
+        }
+        if (event.key.code == sf::Keyboard::Space) {
+            player.Shoot();
         }
         player.isMovable();
-        player.setAngle(angleVision);
         player.playerMovement(DeplacmentValueX, DeplacmentValueY);
 
     }

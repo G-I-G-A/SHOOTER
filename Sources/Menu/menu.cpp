@@ -28,6 +28,8 @@ void Menu::mainMenu() {
             else if(eventMenu.key.code == sf::Keyboard::Space) {
                 soundMenu.stop();
                 windowMenu.close();
+                Game game;
+                game.Run();
             }
 
             if (eventMenu.key.code == sf::Keyboard::BackSpace) {
@@ -107,7 +109,7 @@ void Menu::notice() {
     PrintRules.setCharacterSize(24);
     PrintRules.setPosition(20, 0);
 
-    textureNoticeB.loadFromFile("../Assets/button/exit_menu.png"); // mettre les images dans le bon projet
+    textureNoticeB.loadFromFile("../Assets/button/exit_menu.png");
     spriteNoticeB.setTexture(textureNoticeB);
     spriteNoticeB.setPosition(500, 755);
     spriteNoticeB.setScale(0.5, 0.5);
@@ -157,14 +159,14 @@ void Menu::setMenuSprites() {
 
     background.loadFromFile("../Assets/Background/menuBackground.jpg");
     textureExitB.loadFromFile("../Assets/Sprites/exit.png"); // mettre les images dans le bon projet
-    textureRuleB.loadFromFile("../Assets/button/info.png"); // mettre les images dans le bon projet
+    textureRuleB.loadFromFile("../Assets/Sprites/Info.png"); // mettre les images dans le bon projet
 
     spriteBackground.setTexture(background);
     spriteBackground.setTextureRect(sf::IntRect(0, 0, 1600, 900));
     spriteExitB.setTexture(textureExitB);
     spriteExitB.setPosition(500, 525);
     spriteRuleB.setTexture(textureRuleB);
-    spriteRuleB.setPosition(1530, 20);
+    spriteRuleB.setPosition(1520, 50);
 }
 
 // Fait clignoter le texte

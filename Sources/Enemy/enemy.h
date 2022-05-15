@@ -6,6 +6,7 @@
 #include <fstream>
 #include "Field/renderfield.h"
 #include "Assets/assets.h"
+#include "Bullet/bullet.h"
 
 
 
@@ -16,6 +17,7 @@ public:
     ~Enemy();
 
     void EnemyDraw();
+    void SpawnShot();
 
     //getters
     float getPower();
@@ -23,6 +25,7 @@ public:
     float getEnemySpeed();
     float getPositionX();
     float getPositionY();
+    float getAngleInit();
     std::string getName();
     sf::Texture getTexture();
     sf::Sprite getSprite();
@@ -32,12 +35,14 @@ public:
 
     static std::vector<Assets*> EnemiesSprites;
     static sf::Sprite *enemySprite;
+    static std::vector<Bullet*> allBullets;
 
 protected:
     sf::Texture m_textureEnemy;
     sf::Sprite spriteEnemy;
     std::string m_name;
     Assets* m_assetEnemy;
+    Bullet* m_assetBullet;
 
     float m_health;
     float m_power;

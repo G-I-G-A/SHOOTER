@@ -1,6 +1,8 @@
 #include "player.h"
 #include "../Field/field.h"
 
+std::vector<Bullet*> Player::allPlayerBullets;
+
 Player::Player()
 {
     InitializedPlayer();
@@ -110,5 +112,27 @@ void Player::setRotation(std::string direction){
 void Player::setAngle(float angle) {
 
     PlayerSprite.setRotation(angle);
+    angleVisee = angle;
 }
 
+
+float Player::getPosX(){return playerPosX;}
+float Player::getPosY(){return playerPosY;}
+float Player::getAngle(){return angleVisee;}
+
+
+void Player::Shoot()
+{
+    m_playerBullet = new Bullet(getPosX(), getPosY(), getAngle(), true, 100.0f);
+    allPlayerBullets.push_back(m_playerBullet);
+}
+
+void Player::updateShoot()
+{
+    float stepBullet = 5.0f;
+
+    for(unsigned long long i = 0; i < allPlayerBullets.size(); ++i)
+    {
+        allPlayerBullets[i]->moveBullet(stepBullet);
+    }
+}

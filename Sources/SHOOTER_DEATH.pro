@@ -17,7 +17,9 @@ INCLUDEPATH += "..\..\SFML-2.5.1\include"
 DEPENDPATH += "..\..\SFML-2.5.1\include"
 
 SOURCES += \
+        Assets/assets.cpp \
         Bullet/bullet.cpp \
+        EndGame/endgame.cpp \
         Enemy/enemy.cpp \
         Field/field.cpp \
         Field/renderfield.cpp \
@@ -27,7 +29,9 @@ SOURCES += \
         main.cpp
 
 HEADERS += \
+    Assets/assets.h \
     Bullet/bullet.h \
+    EndGame/endgame.h \
     Enemy/enemy.h \
     Field/field.h \
     Field/renderfield.h \

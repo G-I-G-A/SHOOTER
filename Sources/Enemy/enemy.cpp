@@ -1,32 +1,41 @@
 #include "enemy.h"
 
-sf::Sprite Enemy::enemySprite;
-std::vector<sf::Sprite> Enemy::EnemiesSprites;
+sf::Sprite *Enemy::enemySprite;
+std::vector<Assets*> Enemy::EnemiesSprites;
+std::vector<Bullet*> Enemy::allBullets;
 
 using namespace std;
 
-Enemy::Enemy(std::string name, float health, float power, float speed, float posX, float posY)
+Enemy::Enemy(std::string name, float health, float power, float speed, float posX, float posY, float angle)
+    : m_name(name), m_health(health), m_power(power), m_speed(speed), m_posX(posX), m_posY(posY), m_angleInit(angle)
 {
-    m_name = name;
-    m_health = health;
-    m_power = power;
-    m_speed = speed;
-    m_posX = posX;
-    m_posY = posY;
     EnemyDraw();
-    //std::cout << "Enemy Constr";
 }
 
 Enemy::~Enemy()
 {
-
 }
+
+// permet le print des ennemies
 
 void Enemy::EnemyDraw(){
 
-    this->m_textureEnemy.loadFromFile("C:/Users/julie/Documents/Exos/SHOOTER/Assets/Sprites/Enemy.png");
-    this->enemySprite.setTexture(this->m_textureEnemy);
+    std::string filename = "../Assets/Sprites/Enemy.png";
+    m_assetEnemy = new Assets(m_posX, m_posY, 96.0f, 96.0f, m_angleInit, filename);
+    spriteEnemy = m_assetEnemy->getSprite();
+    EnemiesSprites.push_back(m_assetEnemy);
 }
+
+// permet de creer une balle a partir des donnees de l'ennemie
+
+void Enemy::SpawnShot() {
+
+    m_assetBullet = new Bullet(m_assetEnemy->getPosX(), m_assetEnemy->getPosY(), m_assetEnemy->getAngle(), false, 100.0f);
+    allBullets.push_back(m_assetBullet);
+}
+
+
+// getteurs et setteurs
 
 float Enemy::getPower() { return m_power;}
 float Enemy::getHealth() { return m_health;}
@@ -35,39 +44,21 @@ float Enemy::getPositionX() {return m_posX;}
 float Enemy::getPositionY() {return m_posY;}
 std::string Enemy::getName() {return m_name;}
 sf::Texture Enemy::getTexture() {return m_textureEnemy;}
-sf::Sprite Enemy::getSprite() {return enemySprite;}
+sf::Sprite& Enemy::getSprite() {return spriteEnemy;}
+float Enemy::getAngleInit() {return m_angleInit;}
 
 void Enemy::setDamage(float damages)
 {
     m_health = m_health - damages;
 }
 
-
-void Enemy::setPositionEnemy(float x, float y){
-    m_posX = m_posX + x;
-    m_posY = m_posY + y;
-    this->enemySprite.move(sf::Vector2f(m_posX, m_posY));
-    //std::cout << m_posX << m_posY;
-
+void Enemy::setDeath()
+{
+    m_posX = 0;
+    m_posY = 0;
+    spriteEnemy.setColor(sf::Color::Transparent);
+    spriteEnemy.setPosition(m_posX, m_posY);
 }
 
 
-void Enemy::initEnemyOnMap(char type, float x, float y){
-
-    switch(type) {
-
-    case 'R':
-        enemySprite.setRotation(270.0f);
-        break;
-    case 'T':
-        enemySprite.setRotation(180.0f);
-        break;
-    }
-
-    this->enemySprite.setPosition(x, y);
-    this->enemySprite.setTextureRect(sf::IntRect(0 * 96, 0 * 96, 96, 96));
-    this->enemySprite.setOrigin(48.0f, 48.0f);
-    EnemiesSprites.push_back(enemySprite);
-
-}
 

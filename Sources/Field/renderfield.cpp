@@ -1,34 +1,20 @@
 #include "renderfield.h"
 
-sf::Sprite renderfield::upWallSprite;
-sf::Sprite renderfield::downWallSprite;
-sf::Sprite renderfield::rightWallSprite;
-sf::Sprite renderfield::leftWallSprite;
-sf::Sprite renderfield::groundSprite;
-sf::Sprite renderfield::exitSprite;
-sf::Sprite renderfield::topLCornerSprite;
-sf::Sprite renderfield::topRCornerSprite;
-sf::Sprite renderfield::botLCornerSprite;
-sf::Sprite renderfield::botRCornerSprite;
-sf::Sprite renderfield::playerSprite;
-std::vector<sf::Sprite> renderfield::allSprites;
+sf::Sprite RenderField::printSprite;
+std::vector<sf::Sprite> RenderField::allSprites;
+//sf::Texture RenderField::texture;
 
-sf::Sprite renderfield::printSprite;
 
-renderfield::renderfield()
-{
-
+RenderField::RenderField() {
 }
 
-renderfield::~renderfield() {}
+RenderField::~RenderField() {}
 
-void renderfield::initSpriteOnMap(int type, int lines, int columns) {
+// permet de print les sprites en fonction des variables contenu dans le vecteur
 
-    //std::cout << "line: " << lines << "\t column: " << columns << "\n";
+void RenderField::initSpriteOnMap(int type, int lines, int columns) {
 
-    texture.loadFromFile("C:/Users/julie/Documents/Exos/SHOOTER/Assets/Sprites/Set.png");
-
-
+    texture.loadFromFile("../Assets/Sprites/Set.png");
 
     switch (type) {
     case 1:
@@ -87,19 +73,10 @@ void renderfield::initSpriteOnMap(int type, int lines, int columns) {
     printSprite.setTextureRect(sf::IntRect(i * 32, j * 32, 32, 32));
     printSprite.setPosition(columns * 32, lines * 32);
     allSprites.push_back(printSprite);
-
 }
 
-
-void renderfield::initPlayerOnMap(float x, float y){
-
-    texturePlayer.loadFromFile("C:/Users/julie/Documents/Exos/SHOOTER/Assets/Sprites/Player.png");
-    playerSprite.setTexture(texturePlayer);
-    playerSprite.setTextureRect(sf::IntRect(0 * 96, 0 * 96, 96, 96));
-    playerSprite.setPosition(sf::Vector2f(x, y));
-    playerSprite.setOrigin(48.0f, 48.0f);
-    allSprites.push_back(playerSprite);
-
+void RenderField::clearSpriteMap()
+{
+    allSprites.clear();
 }
-
 

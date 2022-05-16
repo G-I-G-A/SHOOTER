@@ -1,28 +1,35 @@
 #ifndef BULLET_H
 #define BULLET_H
-
+#include <SFML/Graphics.hpp>
 #include <iostream>
 #include <vector>
 
 
-class bullet
+
+class Bullet
 {
 public:
-    bullet(float PosPlayerX, float PosPlayerY, float AnglePlayer, float PosEnX, float PosEnY, bool IsPlayer, float Speed);
-    ~bullet();
+    Bullet(float PosEnX, float PosEnY, float AnglePlayer, bool IsPlayer, float Speed);
+    ~Bullet();
 
     void drawBullet();
-    void setOriginBullet();
-    void moveBullet();
+    void setOriginBullet(float x, float y);
+    void moveBullet(float step);
+    sf::RectangleShape& getRectShape();
+
+    sf::Vector2f GetPosition();
 
 protected:
-    float m_PosPlayerX;
-    float m_PosPlayerY;
-    float m_AnglePlayer;
     float m_PosEnX;
     float m_PosEnY;
+    float m_AngleShoot;
     bool m_IsPlayer;
     float m_Speed;
+
+    float m_PosPlayerX;
+    float m_PosPlayerY;
+
+    sf::RectangleShape m_bulletShape;
 
 };
 

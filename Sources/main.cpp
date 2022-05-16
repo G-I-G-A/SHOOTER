@@ -1,14 +1,15 @@
-
 #include <iostream>
-#include <string>
 #include "Game/game.h"
 #include "Field/field.h"
 #include "Field/renderfield.h"
+#include "Menu/menu.h"
+
+using namespace std;
 
 int main()
 {
-    field field;
-    field.getTilesFromFile();
-    game game;
-    game.Run();
+    Field::Instance()->getTilesFromFile(1);
+    Menu menu;
+    menu.mainMenu();
+    return (0);
 }

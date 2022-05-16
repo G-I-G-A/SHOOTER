@@ -1,0 +1,18 @@
+CONTROLES :
+
+HAUT : Z
+BAS : S
+GAUCHE : Q
+DROITE : D
+TIRER : ESPACE
+
+SCORES :
+
+Nom : test
+Score : 1091
+Nom : Paul
+Score : 989
+Nom : Julie
+Score : 1738
+Nom : paul2
+Score : 698
